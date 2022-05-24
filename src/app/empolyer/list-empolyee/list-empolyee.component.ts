@@ -23,6 +23,7 @@ export class ListEmpolyeeComponent implements OnInit {
 
   ngOnInit() {
     this.employees = this.employeeService.getEmployees();
+    console.log(this.employees);
     // setTimeout(function(){
     //   $(function(){
     //     $('#example').DataTable();

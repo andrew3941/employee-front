@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Employee} from '../../model/empolyer.model';
+import {ActivatedRoute, Router} from '@angular/router';
+import {EmpolyeeService} from '../../service/empolyee.service';
+import { ApiResponse } from 'src/app/model/api.respone';
 
 @Component({
   selector: 'app-update-empolyee',
@@ -7,9 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateEmpolyeeComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+  employee: Employee;
+  apiResponse:ApiResponse;
+
+  constructor(private route: ActivatedRoute,private router: Router,
+              private employeeService: EmpolyeeService) { }
 
   ngOnInit() {
+    this.employee = new Employee();
+
+    this.id = this.route.snapshot.params['id'];
+    this.employeeService.getEmployeeById(this.id)
+      .subscribe(data => {
+        console.log(data)
+        this.employee = data;
+      }, error => console.log(error));
+  }
+
+  onSubmit() {
+    this.employeeService.updateEmployee(this.id, this.employee)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.employee = new Employee();
+    this.router.navigate(['/employees']);
+  }
+
+
+  list(){
+    this.router.navigate(['employees']);
   }
 
 }
