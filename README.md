@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Add Employee Form
+![employeeForm](https://user-images.githubusercontent.com/77746680/170117352-27de8b58-6c16-49b6-a892-08d3ec6c0c13.png)
+## List of Employee
+![employee list](https://user-images.githubusercontent.com/77746680/170117513-ed87e438-fb80-4827-bade-daab62406554.png)
